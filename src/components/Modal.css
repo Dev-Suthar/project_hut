@@ -1,0 +1,94 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 99999999;
+  display: block;
+  overflow-y: auto;
+}
+
+.modal-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* top will be set dynamically in JS */
+  margin: 0 0 100px; /* Only bottom margin */
+  background-color: #0E0E0E;
+  border-radius: 8px;
+  border: 1px solid #2D2D2D;
+  width: 98%;
+  max-width: 1100px;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  z-index: 100000000;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #2D2D2D;
+  background-color: #0E0E0E;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin-bottom: 15px;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.modal-close-button {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 28px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-content {
+  padding: 15px 0 0;
+  overflow: visible;
+}
+
+/* Specific styling for the pricing modal */
+.modal-content .pricing-section {
+  padding: 0;
+  background-color: transparent;
+}
+
+.modal-content .pricing-cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+.modal-content .pricing-card {
+  min-width: 270px;
+  max-width: 320px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+/* Prevent scrolling on body when modal is open */
+body.modal-open {
+  overflow: hidden;
+} 

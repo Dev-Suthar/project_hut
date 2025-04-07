@@ -1,0 +1,273 @@
+.scrolling-banner {
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+  padding: 30px 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: -1px;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Add background scrolling text similar to footer */
+.scrolling-banner-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.15;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.scrolling-banner-background-text {
+  font-family: sans-serif;
+  font-size: 120px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9) !important;
+  position: absolute;
+  mix-blend-mode: overlay;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  width: max-content;
+}
+
+@keyframes moveLeftToRight {
+  0% {
+    transform: translateX(-33.33%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes moveLeftToRight {
+  0% {
+    -webkit-transform: translateX(-33.33%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+.scrolling-banner-background-text:first-child {
+  top: 10%;
+  animation: moveLeftToRight 20s linear infinite;
+  -webkit-animation: moveLeftToRight 20s linear infinite;
+}
+
+.scrolling-banner-background-text:last-child {
+  bottom: 10%;
+  animation: moveLeftToRight 20s linear infinite;
+  -webkit-animation: moveLeftToRight 20s linear infinite;
+  animation-delay: -10s;
+  -webkit-animation-delay: -10s;
+}
+
+.scrolling-logos {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 0 50px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Logo wrapper to ensure consistent spacing */
+.logo-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 80px;
+  position: relative;
+  height: 80px;
+  text-align: center;
+}
+
+.company-logo {
+  display: inline-block;
+  /* Height is now set by size classes */
+  max-height: 100%;
+  width: auto;
+  vertical-align: middle;
+  transition: opacity 0.3s ease;
+  transform: translateZ(0) translateY(-50%);
+  -webkit-transform: translateZ(0) translateY(-50%);
+  position: relative;
+  top: 50%;
+}
+
+/* Consistent sizes for different logos */
+.logo-size-1 {
+  height: 40px;
+}
+
+.logo-size-2 {
+  height: 50px;
+}
+
+.logo-size-3 {
+  height: 45px;
+}
+
+.logo-size-4 {
+  height: 130px;
+  width: auto;
+  min-width: 100px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) contrast(1.2);
+  opacity: 1;
+}
+
+.white-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+/* Override the white-logo filter for logo-size-4 */
+.logo-size-4.white-logo {
+  filter: brightness(0) invert(1) contrast(1.2);
+  opacity: 1;
+}
+
+.company-logo:hover {
+  opacity: 1;
+}
+
+/* Remove the old approach of targeting logos by URL */
+/* img[src*="ac55/a725"] {
+  height: 120px;
+} */
+
+.outline-text {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-family: sans-serif;
+  line-height: 1;
+  position: relative;
+}
+
+.normal-text {
+  color: white;
+  font-weight: 900;
+  letter-spacing: 4px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+}
+
+/* Additional styling for the wrapper of logo4 */
+.logo4-wrapper {
+  padding: 0 90px; /* Extra padding for better spacing */
+  height: 130px; /* Taller height for logo4 */
+}
+
+@media (max-width: 1023px) {
+  .logo-wrapper {
+    padding: 0 60px;
+    height: 60px;
+  }
+  
+  .logo-size-1 {
+    height: 30px;
+  }
+  
+  .logo-size-2 {
+    height: 40px;
+  }
+  
+  .logo-size-3 {
+    height: 35px;
+  }
+  
+  .logo-size-4 {
+    height: 60px;
+  }
+  
+  .scrolling-logos {
+    padding: 0 30px;
+  }
+  
+  .logo4-wrapper {
+    padding: 0 70px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo-wrapper {
+    padding: 0 30px;
+    height: 50px;
+  }
+  
+  .logo-size-1 {
+    height: 25px;
+  }
+  
+  .logo-size-2 {
+    height: 30px;
+  }
+  
+  .logo-size-3 {
+    height: 28px;
+  }
+  
+  .logo-size-4 {
+    height: 45px;
+  }
+  
+  .scrolling-banner {
+    padding: 20px 0;
+  }
+  
+  .outline-text {
+    -webkit-text-stroke: 1px white;
+  }
+  
+  .scrolling-logos {
+    padding: 0 20px;
+  }
+  
+  .logo4-wrapper {
+    padding: 0 40px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-wrapper {
+    padding: 0 20px;
+    height: 40px;
+  }
+  
+  .logo-size-1, 
+  .logo-size-2, 
+  .logo-size-3, 
+  .logo-size-4 {
+    height: 25px; /* Make all logos the same height on very small screens */
+  }
+  
+  .scrolling-banner {
+    padding: 15px 0;
+  }
+  
+  .logo4-wrapper {
+    padding: 0 25px;
+    height: 50px;
+  }
+} 

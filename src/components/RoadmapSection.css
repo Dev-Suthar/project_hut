@@ -1,0 +1,219 @@
+.project-roadmap-section {
+  position: relative;
+  padding: 40px 0 200px; /* Increased bottom padding for better transition */
+  min-height: 100vh; /* Ensure it takes up a full viewport height */
+  background-color: #000000;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              visibility 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: transform, opacity, visibility;
+  z-index: 3; /* Higher z-index to appear on top */
+  overflow: visible; /* Changed from hidden to visible */
+  margin-top: -10vh; /* Negative margin to pull it up over the services section */
+  scroll-snap-align: start;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border to create visual separation */
+  perspective: 1200px; /* Enhanced perspective for better 3D transforms */
+  transform-style: preserve-3d; /* Maintain 3D effect for children */
+}
+
+/* Grid background pattern */
+.project-roadmap-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(70, 70, 70, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(70, 70, 70, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px; /* Perfect square grid cells */
+  background-position: 0 0; /* Ensure alignment with BuildBanner grid */
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6; /* Slightly reduced opacity for better readability */
+  transform: translateZ(0); /* Performance optimization */
+}
+
+/* Simplified background */
+.project-roadmap-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(-10px); /* Create depth in 3D space */
+}
+
+.roadmap-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform-origin: center top; /* Ensure proper scaling origin */
+  will-change: transform, opacity; /* Optimize for animation */
+  backface-visibility: hidden; /* Prevent flickering during animations */
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), 
+              opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* Enhanced easing */
+  transform-style: preserve-3d; /* Maintain 3D effect for children */
+}
+
+.roadmap-step {
+  position: relative;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Enhanced easing */
+  cursor: default;
+  padding: 15px 20px;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(0); /* Performance optimization */
+  will-change: transform, opacity; /* Performance hint */
+}
+
+/* Action text styling (Share, Agree on, Onboard) */
+.step-action {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 400;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Enhanced easing */
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transform: translateZ(5px); /* Subtle 3D positioning */
+}
+
+/* Individual colors for each action text */
+.roadmap-step:nth-child(1) .step-action {
+  color: #4977FE; /* Blue for "Share" */
+}
+
+.roadmap-step:nth-child(2) .step-action {
+  color: #46D5B3; /* Teal for "Agree on" */
+}
+
+.roadmap-step:nth-child(3) .step-action {
+  color: #FEE15F; /* Yellow for "Onboard" */
+}
+
+/* Remove the underline effect on hover */
+.step-action::after {
+  display: none;
+}
+
+/* Main title styling */
+.step-title {
+  color: #ffffff;
+  font-size: 100px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: none;
+  margin: 0;
+  letter-spacing: -1px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Enhanced easing */
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transform: translateZ(10px); /* More pronounced 3D positioning */
+  will-change: transform; /* Performance hint */
+}
+
+/* Remove hover effects */
+.roadmap-step:hover .step-title {
+  transform: none;
+}
+
+/* Remove connecting lines */
+.roadmap-step:not(:last-child)::after {
+  display: none;
+}
+
+/* Remove step indicators */
+.step-indicator {
+  display: none;
+}
+
+/* Specific styling for the third step (Onboard The team) */
+.roadmap-step:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roadmap-step:nth-child(3) .step-action {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 991px) {
+  .roadmap-content {
+    max-width: 600px;
+    gap: 30px;
+  }
+  
+  .step-title {
+    font-size: 80px;
+  }
+  
+  .step-action {
+    font-size: 22px;
+  }
+  
+  .roadmap-step {
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .project-roadmap-section {
+    padding: 30px 0 60px; /* Reduced padding for mobile */
+    margin-top: -5vh; /* Less aggressive negative margin for mobile */
+  }
+  
+  .roadmap-content {
+    max-width: 100%;
+    gap: 25px;
+  }
+  
+  .step-title {
+    font-size: 60px;
+  }
+  
+  .step-action {
+    font-size: 20px;
+  }
+  
+  .roadmap-step {
+    padding: 10px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roadmap-content {
+    gap: 20px;
+  }
+  
+  .step-title {
+    font-size: 48px;
+  }
+  
+  .step-action {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,696 @@
+.section {
+    padding: 100px 0 80px;
+    position: relative;
+    background-color: #000000;
+    overflow: visible;
+    z-index: 2;
+  }
+  
+  .faq-section {
+    min-height: auto !important;
+    padding-bottom: 40px !important;
+    overflow: visible !important;
+    margin-bottom: 0px;
+    margin-top: 80px;
+    padding-top: 40px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform, z-index;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+  
+  /* Add styles for the footer spacer */
+  #footer-spacer {
+    transition: height 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    background: transparent;
+    display: block;
+    width: 100%;
+    clear: both;
+    margin: 0;
+    padding: 0;
+    min-height: 20px !important;
+    position: relative;
+    z-index: 1;
+    will-change: height;
+  }
+  
+  /* Ensure the ModernFooter has proper positioning */
+  .ModernFooter, footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 0px;
+    transform: translateZ(0);
+  }
+  
+  .overflow-visible {
+    overflow: visible !important;
+  }
+  
+  .w-layout-blockcontainer {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-bottom: 0;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+  
+  .w-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 940px;
+  }
+  
+  .sticky-content-wrap {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 0.6fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 60px;
+    grid-row-gap: 16px;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), height 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    min-height: auto !important;
+    height: auto;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .sticky-content-left {
+    position: relative;
+    overflow: visible;
+    z-index: 10;
+    transform: translateZ(0);
+    height: auto;
+  }
+  
+  .sticky-block {
+    position: sticky;
+    top: 100px;
+    margin-bottom: 30px;
+    overflow: visible;
+    width: 100%;
+    transform: translateZ(0);
+    will-change: transform;
+    padding-bottom: 0;
+    height: auto;
+    z-index: 5;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), top 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    max-height: calc(100vh - 200px);
+    transform-origin: top left;
+  }
+  
+  .faq-dropdown.active ~ .sticky-block,
+  .sticky-content-wrap:has(.faq-dropdown.active) .sticky-block {
+    /* We'll use JS to control the transform */
+  }
+  
+  .title-wrapper {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .heading-text-animation-wrapper {
+    position: relative;
+    overflow: visible;
+    margin-bottom: 24px;
+  }
+  
+  .first-line {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .animation-text-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .text-line-block {
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    will-change: width, height;
+  }
+  
+  .animation-text {
+    font-size: 130px;
+    line-height: 0.9;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #ffffff;
+    will-change: transform, opacity;
+    position: relative;
+    white-space: nowrap;
+    transition: none;
+    z-index: 10;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .animation-text.back {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    z-index: -1;
+    color: rgba(0, 0, 0, 0.05);
+    opacity: 0.5;
+  }
+  
+  .text-animation-wrapper {
+    position: relative;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .second-line {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .dot-indicator {
+    display: none;
+  }
+  
+  .sticky-content-right {
+    position: relative !important;
+    top: auto !important;
+    padding-bottom: 60px !important;
+    perspective: 1000px;
+    will-change: transform;
+    z-index: 4;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .faq-dropdown {
+    position: relative;
+    margin-bottom: 20px;
+    overflow: visible;
+    background-color: rgba(30, 30, 30, 0.7);
+    width: 100%;
+    will-change: transform, height, opacity;
+    opacity: 1;
+    transition: height 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    border-radius: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    transform: translateZ(0);
+    backdrop-filter: blur(10px);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    visibility: visible;
+  }
+  
+  .faq-dropdown.active {
+    z-index: 6;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: visible;
+  }
+  
+  .w-dropdown {
+    display: block;
+    position: relative;
+    text-align: left;
+    z-index: 900;
+  }
+  
+  .faq-dropdown-toggle {
+    display: flex;
+    padding: 28px 30px 28px 30px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    transform: translateZ(0);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .w-dropdown-toggle {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: inline-block;
+    cursor: pointer;
+    padding-right: 40px;
+  }
+  
+  .accordion-p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.4;
+    flex-grow: 1;
+    transition: color 0.3s ease;
+    will-change: transform;
+    transform: translateZ(0);
+    padding-right: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .accordion-p.for--dropdown {
+    color: rgba(255, 255, 255, 0.8);
+    padding-right: 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* We can remove these as we now use inline styles */
+  .dropdown-circle {
+    display: none;
+  }
+  
+  .plus-text {
+    color: #ffffff;
+    font-weight: 300;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  .faq-dropdown-list {
+    padding: 0px 30px 28px;
+    background-color: transparent;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), height 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity, height;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: block !important;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .w-dropdown-list {
+    position: relative;
+    display: none;
+  }
+  
+  .faq-dropdown.active .faq-dropdown-list {
+    opacity: 1;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .sticky-block p {
+    font-size: 26px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  
+  .faq-description {
+    font-size: 26px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 400;
+    display: block;
+    text-align: left;
+    white-space: normal;
+    max-width: 100%;
+  }
+  
+  .faq-description span {
+    display: block;
+    white-space: nowrap;
+  }
+  
+  .sticky-block p,
+  .sticky-block .faq-description {
+    font-size: 26px;
+    line-height: 1.4;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 991px) {
+    .sticky-content-wrap {
+      grid-template-columns: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 40px;
+    }
+    
+    .sticky-block {
+      position: relative;
+      top: 0;
+      margin-bottom: 20px;
+    }
+    
+    .animation-text {
+      font-size: 100px;
+      margin-bottom: 20px;
+    }
+    
+    .faq-section {
+      padding-top: 20px;
+      margin-top: 40px;
+    }
+    
+    .sticky-block p,
+    .sticky-block .faq-description {
+      font-size: 22px;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .section {
+      padding: 60px 0 40px;
+    }
+    
+    .animation-text {
+      font-size: 80px;
+      margin-bottom: 15px;
+    }
+    
+    .accordion-p {
+      font-size: 16px;
+      padding-right: 40px;
+    }
+    
+    .faq-section {
+      padding-bottom: 60px !important;
+      margin-bottom: 20px;
+    }
+    
+    .faq-dropdown-toggle {
+      padding: 20px 24px 20px 24px;
+    }
+    
+    .faq-dropdown-list {
+      padding: 0px 24px 20px;
+    }
+    
+    .faq-dropdown {
+      margin-bottom: 16px;
+      transition: height 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    
+    .sticky-block p,
+    .sticky-block .faq-description {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+  }
+  
+  @media screen and (max-width: 479px) {
+    .section {
+      padding: 40px 0 30px;
+    }
+    
+    .animation-text {
+      font-size: 60px;
+      margin-bottom: 12px;
+    }
+    
+    .accordion-p {
+      font-size: 15px;
+      padding-right: 30px;
+    }
+    
+    .faq-section {
+      padding-bottom: 40px !important;
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
+    
+    .faq-dropdown-toggle {
+      padding: 16px 20px 16px 20px;
+    }
+    
+    .faq-dropdown-list {
+      padding: 0px 20px 16px;
+    }
+    
+    .faq-dropdown {
+      margin-bottom: 12px;
+      border-radius: 0px;
+      transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    
+    .sticky-block p,
+    .sticky-block .faq-description {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Add styles for pin-spacer to prevent extra space */
+  .gsap-pin-spacer {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  /* Ensure content below FAQ section is properly positioned */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Add additional spacing for the section after FAQ */
+  .faq-section + * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Hide GSAP markers in production */
+  .gsap-marker-scroller-start,
+  .gsap-marker-scroller-end,
+  .gsap-marker-start,
+  .gsap-marker-end {
+    display: none !important;
+  }
+  
+  .faq-dropdown:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Add smooth scrolling to the document */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimize animations for reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .faq-section,
+    .sticky-block,
+    .faq-dropdown,
+    .plus-text,
+    .dropdown-circle,
+    .faq-dropdown-list,
+    #footer-spacer {
+      transition-duration: 0.1s !important;
+    }
+    
+    html {
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Grid System for FAQ section - Updated to match Aboutus.tsx style */
+  .faq-section.fully-visible .faq-grid {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .faq-grid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    opacity: 0.8;
+    visibility: visible;
+    pointer-events: none;
+    will-change: opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .faq-grid-cell {
+    position: relative;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-origin: center center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .faq-grid-cell-colored {
+    background-color: rgba(24, 45, 105, 0.4);
+    z-index: 2;
+    opacity: 1 !important;
+    visibility: visible !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Left side and right side cell styles - similar to Aboutus.tsx */
+  .faq-grid-cell-colored.left-side-cell {
+    background-color: rgba(30, 40, 80, 0.4);
+  }
+  
+  .faq-grid-cell-colored.right-side-cell {
+    background-color: rgba(60, 30, 90, 0.4);
+  }
+  
+  /* Add transparent cell classes */
+  .faq-grid-cell-colored.grid-cell-transparent {
+    opacity: 0.5;
+  }
+  
+  .faq-grid-cell-colored.grid-cell-solid {
+    opacity: 1;
+  }
+  
+  /* Background grid lines similar to Aboutus.tsx */
+  .faq-bg-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.15;
+  }
+  
+  .horizontal-line, .vertical-line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    visibility: visible !important; /* Ensure grid lines remain visible */
+  }
+  
+  .horizontal-line {
+    width: 100%;
+    height: 1px;
+  }
+  
+  .vertical-line {
+    width: 1px;
+    height: 100%;
+  }
+  
+  /* Position the lines - similar to Aboutus.tsx */
+  .horizontal-line-1 { top: 12.5%; }
+  .horizontal-line-2 { top: 25%; }
+  .horizontal-line-3 { top: 37.5%; }
+  .horizontal-line-4 { top: 50%; }
+  .horizontal-line-5 { top: 62.5%; }
+  .horizontal-line-6 { top: 75%; }
+  .horizontal-line-7 { top: 87.5%; }
+  .horizontal-line-8 { top: 100%; }
+  
+  .vertical-line-1 { left: 12.5%; }
+  .vertical-line-2 { left: 25%; }
+  .vertical-line-3 { left: 37.5%; }
+  .vertical-line-4 { left: 50%; }
+  .vertical-line-5 { left: 62.5%; }
+  .vertical-line-6 { left: 75%; }
+  .vertical-line-7 { left: 87.5%; }
+  .vertical-line-8 { left: 100%; }
+  
+  /* Fix for FAQ animation visibility */
+  .faq-dropdown.active .faq-dropdown-toggle .plus-text {
+    transform: rotate(45deg);
+  }
+
+  /* Ensure animation visibility */
+  .faq-section * {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  /* Add animation classes for explicit animation control */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 991px) {
+    .faq-grid {
+      opacity: 0.7;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .faq-grid {
+      opacity: 0.6;
+    }
+  }
+  
+  @media screen and (max-width: 479px) {
+    .faq-grid {
+      opacity: 0.5;
+    }
+  }

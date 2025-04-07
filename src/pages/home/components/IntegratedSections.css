@@ -1,0 +1,1095 @@
+/* IntegratedSections.css - Combined with TeamSection styles */
+
+.integrated-sections {
+    position: relative;
+    height: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  .spacer-div {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Roadmap styling */
+  .project-roadmap-style {
+    position: relative;
+    transition: transform 1s ease, opacity 1s ease;
+    will-change: transform, opacity, visibility;
+    z-index: 3;
+    overflow: visible;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+  
+  /* Grid background pattern */
+  .project-roadmap-style::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(70, 70, 70, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(70, 70, 70, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+    transform: translateZ(0);
+  }
+  
+  .roadmap-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform-origin: center top;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), 
+                opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .roadmap-step {
+    position: relative;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: default;
+    padding: 15px 20px;
+    background: transparent;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+  
+  /* Action text styling (Share, Agree on, Onboard) */
+  .step-action {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transform: translateZ(5px);
+  }
+  
+  /* Main title styling */
+  .step-title {
+    color: #ffffff;
+    font-size: 100px;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: none;
+    margin: 0;
+    letter-spacing: -1px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transform: translateZ(10px);
+    will-change: transform;
+  }
+  
+  /* BuildBanner styling */
+  .build-banner-container {
+    width: 100vw; /* Changed from 100% to 100vw for full viewport width */
+    height: auto;
+    min-height: 120px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Changed from visible to hidden to prevent horizontal scrollbar */
+    margin-top: 40px;
+    margin-bottom: 0px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), 
+                opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), 
+                visibility 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, opacity, visibility;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    margin-left: -50vw; /* Offset to extend beyond container */
+    left: 50%; /* Center the element */
+  }
+  
+  /* Add grid background pattern */
+  .build-banner-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(70, 70, 70, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(70, 70, 70, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  
+  .roadmap-banner {
+    width: 100%;
+    background-color: #000000;
+    overflow: hidden;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), 
+                opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  .banner-text {
+    display: flex;
+    white-space: nowrap;
+    animation: bannerScroll 20s linear infinite;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 200%;
+  }
+  
+  .banner-text.reverse {
+    animation: bannerScrollReverse 20s linear infinite;
+    margin-bottom: 0;
+    width: 200%;
+  }
+  
+  .banner-text span {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    font-family: monospace;
+    text-transform: uppercase;
+    margin-right: 20px;
+    padding: 0;
+    letter-spacing: 1px;
+    word-spacing: 10px;
+    
+    /* Outline text effect with cross-browser support */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-fill-color: transparent;
+    
+    -webkit-text-stroke: 2px white;
+    -moz-text-stroke: 2px white;
+    text-stroke: 2px white;
+    
+    transition: all 0.5s ease;
+  }
+  
+  .banner-text span:hover {
+    -webkit-text-stroke: 2px #5FD3B9;
+    -moz-text-stroke: 2px #5FD3B9;
+    text-stroke: 2px #5FD3B9;
+    transform: scale(1.05);
+  }
+  
+  .banner-text .arrow-icon {
+    margin-right: 20px;
+    margin-left: 0px;
+    position: relative;
+    top: 5px; /* Adjust vertical alignment */
+    display: inline-flex; /* Changed from inline-block to inline-flex for better alignment */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+  }
+  
+  .banner-text .arrow-icon img {
+    width: 34px !important; /* Important to override any other styles */
+    height: 27px !important; /* Important to override any other styles */
+    display: block; /* Ensure proper rendering */
+    vertical-align: middle;
+    object-fit: contain; /* Ensure image maintains proportions */
+    filter: brightness(1.2);
+    transition: all 0.5s ease;
+    max-width: none; /* Prevent responsive image resizing */
+  }
+  
+  .banner-text .arrow-icon:hover img {
+    transform: rotate(10deg) scale(1.1);
+    filter: brightness(1.5) hue-rotate(140deg);
+  }
+  
+  @keyframes bannerScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes bannerScrollReverse {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* TeamSection styles */
+  .team-section-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+  }
+  
+  .team-section-content {
+    position: relative !important;
+    z-index: 10 !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .team-section-heading {
+    position: relative !important;
+    z-index: 11 !important;
+    color: #FFFFFF;
+    font-size: 48px;
+    text-align: left;
+    margin-bottom: 60px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .team-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+  .team-card {
+    flex: 1;
+    background-color: rgba(20, 20, 20, 0.4); /* Changed from solid to transparent with 0.4 opacity */
+    backdrop-filter: blur(8px); /* Add blur effect for glass morphism */
+    -webkit-backdrop-filter: blur(8px); /* For Safari support */
+    border-radius: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more visible border */
+    transition: all 0.2s ease;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 20px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Lighter shadow for transparent card */
+  }
+  
+  .team-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.25); /* Brighter border on hover */
+    background-color: rgba(30, 30, 30, 0.5); /* Slightly more visible background on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+  }
+  
+  /* Add a subtle gradient overlay inside the card */
+  .team-card-inner {
+    padding: 40px 30px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Add gap between child elements */
+  }
+  
+  .team-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(79, 119, 254, 0.05) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: -1;
+  }
+  
+  .team-card-inner h3 {
+    margin-bottom: 20px; /* Override the previous margin */
+  }
+  
+  .team-card h3 {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 16px 0; /* Increased bottom margin from 8px to 16px */
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Add glow to title */
+    line-height: 1.1; /* Added line height to prevent text compression */
+    display: block; /* Ensure block display */
+  }
+  
+  .team-card-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 24px 0;
+    font-weight: 400;
+    display: block; /* Ensure block display */
+    line-height: 1.4; /* Improved line height */
+    padding-top: 5px; /* Add some padding at the top */
+  }
+  
+  .team-card-divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.08); /* Subtler divider for transparent card */
+    margin: 10px 0 30px 0; /* Add more margin above and below */
+  }
+  
+  .team-card-button {
+    display: block;
+    width: 100%;
+    background-color: rgba(79, 119, 254, 0.7); /* More transparent button */
+    color: white;
+    border: none;
+    padding: 16px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 15px rgba(79, 119, 254, 0.2); /* Add subtle glow */
+  }
+  
+  .team-card-button:hover {
+    background-color: rgba(79, 119, 254, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(79, 119, 254, 0.35); /* Enhanced glow on hover */
+    transition: all 0.15s ease;
+  }
+  
+  .team-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+  }
+  
+  .team-card-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.95); /* Slightly transparent text */
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Subtle text glow */
+  }
+  
+  .arrow-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  .arrow-icon img {
+    width: 20px;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+    transition: all 0.2s ease;
+  }
+  
+  .team-card-list li:hover .arrow-icon img {
+    transform: translateX(3px);
+    filter: drop-shadow(0 0 8px rgba(86, 183, 158, 0.5));
+  }
+  
+  .team-card-list li span.arrow-icon + span {
+    display: inline-block;
+    padding-top: 3px;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+  
+  .team-card-footer {
+    margin-top: auto;
+    padding-top: 20px;
+  }
+  
+  .team-card-footer-desc {
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(86, 183, 158, 0.85); /* Slightly more transparent */
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 500;
+    text-shadow: 0 0 15px rgba(86, 183, 158, 0.25); /* Add subtle glow to match theme */
+  }
+  
+  /* Background elements */
+  .team-bg-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 1) 100%);
+    z-index: 0;
+    filter: blur(92.7px);
+    will-change: opacity;
+  }
+  
+  /* MORE VISIBLE GRID - EMERGENCY FIX */
+  .team-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    gap: 0 !important; /* Force no gap between cells */
+    margin: 0;
+    padding: 0;
+    font-size: 0; /* Remove potential whitespace */
+    line-height: 0; /* Remove potential whitespace */
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  /* More specific selector to override other styles */
+  .team-section-container .team-grid .grid-cell {
+    aspect-ratio: 1 / 1; /* Make cells square */
+    border: 0 !important; /* Remove borders that might cause gaps */
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 0; /* Remove potential whitespace */
+    line-height: 0; /* Remove potential whitespace */
+    display: block;
+  }
+  
+  /* More specific selector for colored cells */
+  .team-section-container .team-grid .grid-cell-colored {
+    border: 0 !important; /* Remove borders completely */
+    background-color: rgba(24, 45, 105, 0.4);
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    font-size: 0;
+    line-height: 0;
+    transform: none !important;
+  }
+  
+  /* These override any existing grid cell styling classes */
+  .grid-cell-hidden {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0;
+    line-height: 0;
+  }
+  
+  /* New class for grid layout */
+  .grid-no-gap {
+    display: grid !important;
+    gap: 0 !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+  }
+  
+  /* Adjust positions to move cells to lower part of the grid */
+  .team-section-container .grid-cell-1 {
+    grid-column: 2 / 3 !important;
+    grid-row: 9 / 10 !important;
+    background-color: #294699 !important;
+  }
+  
+  .team-section-container .grid-cell-2 {
+    grid-column: 3 / 4 !important;
+    grid-row: 9 / 10 !important;
+    background-color: #1D42B1 !important;
+  }
+  
+  .team-section-container .grid-cell-3 {
+    grid-column: 3 / 4 !important;
+    grid-row: 10 / 11 !important;
+    background-color:#294699 !important;
+  }
+  
+  .team-section-container .grid-cell-4 {
+    grid-column: 4 / 5 !important;
+    grid-row: 10 / 11 !important;
+    background-color: #294699 !important;
+  }
+  
+  .team-section-container .grid-cell-5 {
+    grid-column: 4 / 5 !important;
+    grid-row: 13 / 14 !important;
+    background-color: #294699 !important;
+  }
+  
+  .team-section-container .grid-cell-6 {
+    grid-column: 7 / 8 !important;
+    grid-row: 8 / 9 !important;
+    background-color: #294699!important;
+  }
+  
+  .team-section-container .grid-cell-7 {
+    grid-column: 7 / 8 !important;
+    grid-row: 10 / 11 !important;
+    background-color: #294699 !important;
+  }
+  
+  .team-section-container .grid-cell-8 {
+    grid-column: 8 / 9 !important;
+    grid-row: 10 / 11 !important;
+    background-color: #294699 !important;
+  }
+  
+  .team-section-container .grid-cell-9 {
+    grid-column: 7 / 8 !important;
+    grid-row: 11 / 12 !important;
+    background-color: #294699 !important;
+  }
+  
+  .team-section-container .grid-cell-10 {
+    grid-column: 12 / 13 !important;
+    grid-row: 8 / 9 !important;
+    background-color: #294699!important;
+  }
+  
+  .team-section-container .grid-cell-11 {
+    grid-column: 12 / 13 !important;
+    grid-row: 9 / 10 !important;
+    background-color: #294699 !important;
+  }
+  
+  .team-section-container .grid-cell-12 {
+    grid-column: 13 / 14 !important;
+    grid-row: 9 / 10 !important;
+    background-color: #294699!important;
+  }
+  
+  .team-section-container .grid-cell-13 {
+    grid-column: 14 / 15 !important;
+    grid-row: 11 / 12 !important;
+    background-color:#294699 !important;
+  }
+  
+  /* Background grid lines - Make them invisible */
+  .team-bg-lines {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: none !important;
+    will-change: opacity !important;
+    visibility: hidden !important;
+  }
+  
+  .team-section-container .horizontal-line {
+    position: absolute !important;
+    width: 100% !important;
+    height: 1px !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    transition: none !important;
+    will-change: opacity !important;
+    visibility: hidden !important;
+  }
+  
+  .team-section-container .vertical-line {
+    position: absolute !important;
+    width: 1px !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    transition: none !important;
+    will-change: opacity !important;
+    visibility: hidden !important;
+  }
+  
+  /* Position horizontal lines */
+  .horizontal-line-1 { top: 6.25%; }
+  .horizontal-line-2 { top: 18.75%; }
+  .horizontal-line-3 { top: 31.25%; }
+  .horizontal-line-4 { top: 43.75%; }
+  .horizontal-line-5 { top: 56.25%; }
+  .horizontal-line-6 { top: 68.75%; }
+  .horizontal-line-7 { top: 81.25%; }
+  .horizontal-line-8 { top: 93.75%; }
+  
+  /* Position vertical lines */
+  .vertical-line-1 { left: 6.25%; }
+  .vertical-line-2 { left: 18.75%; }
+  .vertical-line-3 { left: 31.25%; }
+  .vertical-line-4 { left: 43.75%; }
+  .vertical-line-5 { left: 56.25%; }
+  .vertical-line-6 { left: 68.75%; }
+  .vertical-line-7 { left: 81.25%; }
+  .vertical-line-8 { left: 93.75%; }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 1200px) {
+    .integrated-sections {
+      height: 100vh;
+      max-height: 100vh;
+    }
+    .spacer-div {
+      height: 100vh;
+      max-height: 100vh;
+    }
+    .team-section-content {
+      max-width: 90%;
+    }
+    .team-cards {
+      max-width: 90%;
+      padding: 0 20px;
+    }
+  }
+  
+  @media (max-width: 1023px) {
+    .integrated-sections {
+      height: 100vh;
+      max-height: 100vh;
+    }
+    .spacer-div {
+      height: 100vh;
+      max-height: 100vh;
+    }
+    .team-grid {
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    .team-section-container .grid-cell-colored {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    .step-title {
+      font-size: 80px;
+    }
+    
+    .step-action {
+      font-size: 22px;
+    }
+    
+    .team-section-heading {
+      font-size: 42px;
+      margin-bottom: 50px;
+    }
+    
+    .team-cards {
+      gap: 20px;
+    }
+    
+    .team-card h3 {
+      font-size: 32px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .integrated-sections {
+      height: 100vh;
+      max-height: 100vh;
+    }
+    .spacer-div {
+      height: 100vh;
+      max-height: 100vh;
+    }
+    .team-section-container {
+      padding: 40px 0; /* Reduced from 60px to 40px */
+      height: auto; /* Allow content to determine height on mobile */
+      min-height: 100vh;
+    }
+    
+    .team-grid {
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    .team-section-container .grid-cell-5,
+    .team-section-container .grid-cell-9,
+    .team-section-container .grid-cell-13 {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    .team-bg-lines {
+      opacity: 0.15 !important;
+    }
+    
+    .step-title {
+      font-size: 60px;
+    }
+    
+    .step-action {
+      font-size: 20px;
+    }
+    
+    .team-section-heading {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+    
+    .team-cards {
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .team-card {
+      max-width: 100%;
+      padding: 25px;
+    }
+    
+    .team-card h3 {
+      font-size: 28px;
+    }
+    
+    .team-card-subtitle {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .team-card-list li {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .roadmap-banner {
+      padding: 15px 0;
+    }
+    
+    .banner-text span {
+      font-size: 28px;
+    }
+    
+    .build-banner-container {
+      min-height: 80px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .team-grid {
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    .team-section-container .grid-cell-4,
+    .team-section-container .grid-cell-8,
+    .team-section-container .grid-cell-10,
+    .team-section-container .grid-cell-12 {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    .team-bg-lines {
+      opacity: 0.15 !important;
+    }
+    
+    .team-section-heading {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .team-card {
+      padding: 20px;
+    }
+    
+    .team-card h3 {
+      font-size: 24px;
+    }
+    
+    .team-card-subtitle {
+      font-size: 14px;
+    }
+    
+    .team-card-button {
+      font-size: 14px;
+      padding: 12px 24px;
+    }
+    
+    .team-card-footer-desc {
+      font-size: 16px;
+    }
+    
+    .step-title {
+      font-size: 48px;
+    }
+    
+    .step-action {
+      font-size: 18px;
+    }
+    
+    .banner-text span {
+      font-size: 22px;
+      margin-right: 15px;
+    }
+    
+    .arrow-icon {
+      margin-right: 15px;
+    }
+    
+    .arrow-icon img {
+      width: 20px;
+      height: 16px;
+    }
+  }
+  
+  /* Force visibility for all grid elements */
+  .fully-visible .team-section-container .grid-cell-colored,
+  .fully-visible .team-grid,
+  .fully-visible .team-bg-lines {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Custom styles for the team-card-list and minimal-client-item */
+  .team-card-list .minimal-client-item {
+    text-align: left !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    background: transparent !important;
+  }
+  
+  .minimal-client-text {
+    text-align: left !important;
+    display: inline-block !important;
+    width: auto !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Override perspective container effects */
+  .perspective-container .team-grid,
+  .animation-section-wrapper .team-grid {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: grid !important;
+    transform: none !important;
+  }
+  
+  .perspective-container .team-section-container .grid-cell-colored,
+  .animation-section-wrapper .team-section-container .grid-cell-colored {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  
+  /* Common utility classes */
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  .fixed {
+    position: fixed;
+  }
+  
+  .top-0 {
+    top: 0;
+  }
+  
+  .left-0 {
+    left: 0;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .bg-black {
+    background-color: #000000;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .max-w-4xl {
+    max-width: 56rem;
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .p-8 {
+    padding: 2rem;
+  }
+  
+  /* Additional grid utility classes */
+  .grid {
+    display: grid;
+  }
+  
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .gap-4 {
+    gap: 1rem;
+  }
+  
+  .gap-6 {
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .md\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  /* Fix for grid display without gaps */
+  .team-grid.grid-no-gap {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    gap: 0 !important;
+    grid-gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+    line-height: 0;
+  }
+  
+  /* Ensure grid cells have no gaps */
+  .team-grid.grid-no-gap .grid-cell,
+  .team-grid.grid-no-gap .grid-cell-colored,
+  .team-grid.grid-no-gap .grid-cell-hidden {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+  
+  /* Fix for left-side cells and right-side cells */
+  .team-grid.grid-no-gap .left-side-cell,
+  .team-grid.grid-no-gap .right-side-cell {
+    border: none !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Override any transform that might cause spacing issues */
+  .team-grid.grid-no-gap .grid-cell-colored,
+  .team-grid.grid-no-gap .grid-cell-transparent,
+  .team-grid.grid-no-gap .grid-cell-solid {
+    transform: none !important;
+    transition: none !important;
+    will-change: opacity !important;
+    border: none !important;
+  }
+  
+  /* Team card header container styling */
+  .team-card-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    gap: 10px;
+  }
+  
+  .team-card-header h3 {
+    margin-bottom: 8px !important; /* Override any other margins */
+  }
+  
+  .team-card-header .team-card-subtitle {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+  }

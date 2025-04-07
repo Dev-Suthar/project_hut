@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zig-Zag Carousel Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .carousel-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .card {
+            position: absolute;
+            width: 280px;
+            height: 320px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        
+        .card-1 {
+            background-color: #3498db;
+            left: calc(50% - 380px);
+            transform: translateY(-20px);
+            z-index: 4;
+        }
+        
+        .card-2 {
+            background-color: #2ecc71;
+            left: calc(50% - 190px);
+            transform: translateY(20px);
+            z-index: 3;
+        }
+        
+        .card-3 {
+            background-color: #f39c12;
+            left: calc(50%);
+            transform: translateY(-20px);
+            z-index: 2;
+        }
+        
+        .card-4 {
+            background-color: #e74c3c;
+            left: calc(50% + 190px);
+            transform: translateY(20px);
+            z-index: 1;
+        }
+        
+        .hidden-card {
+            opacity: 0;
+            left: calc(50% + 380px);
+            transform: translateY(-20px);
+            z-index: 0;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        button {
+            padding: 12px 24px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #555;
+        }
+        
+        button:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+        
+        .description {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .description h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .description p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .description code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .emoji {
+            margin-right: 5px;
+        }
+        
+        /* Animation classes */
+        .move-out-left {
+            transform: translateX(-300px) !important;
+            opacity: 0 !important;
+        }
+        
+        .move-to-position-1 {
+            transform: translateX(-190px) translateY(-20px) !important;
+            left: calc(50% - 380px) !important;
+            z-index: 4 !important;
+        }
+        
+        .move-to-position-2 {
+            transform: translateX(-190px) translateY(20px) !important;
+            left: calc(50% - 190px) !important;
+            z-index: 3 !important;
+        }
+        
+        .move-to-position-3 {
+            transform: translateX(-190px) translateY(-20px) !important;
+            left: calc(50%) !important;
+            z-index: 2 !important;
+        }
+        
+        .move-to-position-4 {
+            transform: translateY(20px) !important;
+            left: calc(50% + 190px) !important;
+            z-index: 1 !important;
+            opacity: 1 !important;
+        }
+        
+        /* Reverse animation classes */
+        .move-out-right {
+            transform: translateX(300px) !important;
+            opacity: 0 !important;
+        }
+        
+        .move-to-position-prev-1 {
+            transform: translateX(190px) translateY(-20px) !important;
+            left: calc(50% - 380px) !important;
+            z-index: 4 !important;
+            opacity: 1 !important;
+        }
+        
+        .move-to-position-prev-2 {
+            transform: translateX(190px) translateY(20px) !important;
+            left: calc(50% - 190px) !important;
+            z-index: 3 !important;
+        }
+        
+        .move-to-position-prev-3 {
+            transform: translateX(190px) translateY(-20px) !important;
+            left: calc(50%) !important;
+            z-index: 2 !important;
+        }
+        
+        .move-to-position-prev-4 {
+            transform: translateX(190px) translateY(20px) !important;
+            left: calc(50% + 190px) !important;
+            z-index: 1 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Zig-Zag Carousel Animation</h1>
+        
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="card card-1">Card 1</div>
+                <div class="card card-2">Card 2</div>
+                <div class="card card-3">Card 3</div>
+                <div class="card card-4">Card 4</div>
+                <div class="card hidden-card">Card 5</div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button id="prevBtn">← Previous</button>
+            <button id="nextBtn">Next →</button>
+        </div>
+        
+        <div class="description">
+            <h2>Understanding the Zig-Zag Carousel Animation</h2>
+            <p>This animation moves <strong>cards in a carousel</strong> while shifting their positions in a <strong>zig-zag</strong> pattern (alternating up and down).</p>
+            
+            <h3>🔹 How the Animation Works</h3>
+            <ol>
+                <li><strong>Initial Setup</strong>
+                    <ul>
+                        <li>The carousel has <strong>multiple cards</strong>, each positioned next to the other.</li>
+                        <li>Cards are given <strong>absolute positions</strong> to allow smooth movement.</li>
+                        <li>Cards have an <strong>alternate movement pattern</strong>:
+                            <ul>
+                                <li><strong>Odd-indexed cards move slightly up (</strong><code>zig</code>)</li>
+                                <li><strong>Even-indexed cards move slightly down (</strong><code>zag</code>)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>When You Press the Next Button:</strong>
+                    <ul>
+                        <li>The <strong>1st card moves out</strong>, and the <strong>2nd card moves to its place</strong>.</li>
+                        <li>The <strong>3rd card moves to the 2nd position</strong>, and a new card appears at the last.</li>
+                        <li>The cards <strong>shift left</strong> while alternating between <strong>up and down</strong> motion.</li>
+                    </ul>
+                </li>
+                <li><strong>Smooth Movement Using CSS & JS</strong>
+                    <ul>
+                        <li><code>translateX</code> → Moves cards to the left.</li>
+                        <li><code>translateY(-20px) / translateY(20px)</code> → Moves cards up & down.</li>
+                        <li><code>transition: transform 0.5s ease-in-out;</code> → Creates smooth sliding.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Card data - you can expand this array for more cards
+        const cardData = [
+            { id: 1, title: 'Card 1', color: '#3498db' },
+            { id: 2, title: 'Card 2', color: '#2ecc71' },
+            { id: 3, title: 'Card 3', color: '#f39c12' },
+            { id: 4, title: 'Card 4', color: '#e74c3c' },
+            { id: 5, title: 'Card 5', color: '#9b59b6' },
+            { id: 6, title: 'Card 6', color: '#1abc9c' },
+            { id: 7, title: 'Card 7', color: '#e67e22' },
+            { id: 8, title: 'Card 8', color: '#3498db' }
+        ];
+        
+        // Get DOM elements
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const carousel = document.querySelector('.carousel');
+        
+        // Track current state
+        let currentIndex = 0;
+        let isAnimating = false;
+        
+        // Initialize cards with content and colors
+        function initializeCards() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                if (index < 5) {
+                    const dataIndex = (currentIndex + index) % cardData.length;
+                    card.textContent = cardData[dataIndex].title;
+                    card.style.backgroundColor = cardData[dataIndex].color;
+                }
+            });
+        }
+        
+        // Next button click handler
+        nextBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            const cards = document.querySelectorAll('.card');
+            
+            // Animate first card out
+            cards[0].classList.add('move-out-left');
+            
+            // Move other cards to their new positions
+            cards[1].classList.add('move-to-position-1');
+            cards[2].classList.add('move-to-position-2');
+            cards[3].classList.add('move-to-position-3');
+            
+            // Show the hidden card
+            cards[4].classList.add('move-to-position-4');
+            
+            // Update state after animation completes
+            setTimeout(() => {
+                // Update current index
+                currentIndex = (currentIndex + 1) % cardData.length;
+                
+                // Reset card positions and update content
+                resetCardsAfterNext();
+                
+                // Allow animations again
+                isAnimating = false;
+            }, 500);
+        });
+        
+        // Previous button click handler
+        prevBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            const cards = document.querySelectorAll('.card');
+            
+            // Create and insert the new first card
+            const newFirstCard = document.createElement('div');
+            newFirstCard.className = 'card';
+            const prevIndex = (currentIndex - 1 + cardData.length) % cardData.length;
+            newFirstCard.textContent = cardData[prevIndex].title;
+            newFirstCard.style.backgroundColor = cardData[prevIndex].color;
+            newFirstCard.style.opacity = '0';
+            newFirstCard.style.left = 'calc(50% - 570px)';
+            newFirstCard.style.transform = 'translateY(-20px)';
+            carousel.insertBefore(newFirstCard, cards[0]);
+            
+            // Trigger reflow
+            void newFirstCard.offsetWidth;
+            
+            // Animate last card out
+            cards[4].classList.add('move-out-right');
+            
+            // Animate new card in and others to their positions
+            newFirstCard.classList.add('move-to-position-prev-1');
+            cards[0].classList.add('move-to-position-prev-2');
+            cards[1].classList.add('move-to-position-prev-3');
+            cards[2].classList.add('move-to-position-prev-4');
+            
+            // Update state after animation completes
+            setTimeout(() => {
+                // Update current index
+                currentIndex = (currentIndex - 1 + cardData.length) % cardData.length;
+                
+                // Reset card positions and update content
+                resetCardsAfterPrev();
+                
+                // Allow animations again
+                isAnimating = false;
+            }, 500);
+        });
+        
+        // Reset cards after next animation
+        function resetCardsAfterNext() {
+            // Remove old cards and animation classes
+            const cards = document.querySelectorAll('.card');
+            cards[0].remove();
+            
+            // Remove animation classes
+            const remainingCards = document.querySelectorAll('.card');
+            remainingCards.forEach(card => {
+                card.className = 'card';
+            });
+            
+            // Add appropriate position classes
+            remainingCards[0].classList.add('card-1');
+            remainingCards[1].classList.add('card-2');
+            remainingCards[2].classList.add('card-3');
+            remainingCards[3].classList.add('card-4');
+            
+            // Create new hidden card
+            const newCard = document.createElement('div');
+            newCard.className = 'card hidden-card';
+            const newIndex = (currentIndex + 4) % cardData.length;
+            newCard.textContent = cardData[newIndex].title;
+            newCard.style.backgroundColor = cardData[newIndex].color;
+            carousel.appendChild(newCard);
+        }
+        
+        // Reset cards after prev animation
+        function resetCardsAfterPrev() {
+            // Remove old card and animation classes
+            const cards = document.querySelectorAll('.card');
+            cards[cards.length - 1].remove();
+            
+            // Remove animation classes
+            const remainingCards = document.querySelectorAll('.card');
+            remainingCards.forEach(card => {
+                card.className = 'card';
+            });
+            
+            // Add appropriate position classes
+            remainingCards[0].classList.add('card-1');
+            remainingCards[1].classList.add('card-2');
+            remainingCards[2].classList.add('card-3');
+            remainingCards[3].classList.add('card-4');
+            
+            // Create new hidden card
+            const newCard = document.createElement('div');
+            newCard.className = 'card hidden-card';
+            const newIndex = (currentIndex + 4) % cardData.length;
+            newCard.textContent = cardData[newIndex].title;
+            newCard.style.backgroundColor = cardData[newIndex].color;
+            carousel.appendChild(newCard);
+        }
+        
+        // Initialize carousel
+        initializeCards();
+    </script>
+</body>
+</html>

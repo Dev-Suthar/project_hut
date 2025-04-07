@@ -1,0 +1,44 @@
+/* TPH Logo styles */
+.logo-image-with-text {
+  height: 34px;
+  max-width: 260px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+/* Additional responsive styles for the logo */
+@media (max-width: 768px) {
+  .logo-image-with-text {
+    height: 28px;
+    max-width: 200px;
+  }
+}
+
+/* Global styles for modal content */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Ensure modal takes precedence over other elements */
+.modal-overlay {
+  z-index: 9999;
+}
+
+/* Add smooth transitions for modal buttons */
+.team-card-button {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.team-card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(67, 108, 255, 0.4);
+}
+
+/* Style adjustments for pricing section in modal */
+.modal-content .pricing-section {
+  padding-top: 0;
+}
+
+.modal-content .section-title {
+  margin-top: 0;
+}

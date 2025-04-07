@@ -1,0 +1,396 @@
+/* Services Section Styles */
+.service-section {
+    padding: 120px;
+    position: relative;
+    background-color: #000000;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .service-title-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    position: relative;
+    text-align: left;
+  }
+  
+  .section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    max-width: 100%;
+    text-align: left;
+  }
+  
+  .service-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .service-card {
+    background-color: #4169E1;
+    border-radius: 0;
+    padding: 80px 80px 40px 80px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 300px;
+    max-height: 800px;
+  }
+  
+  /* Updated service description styling for exactly 3 lines from left to right */
+  .service-description {
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: left;
+    align-self: flex-start;
+    max-width: 100%;
+  }
+  
+  .service-description p {
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 0;
+    text-align: left;
+    max-width: 100%;
+    display: block;
+    /* These styles help create exactly 3 lines */
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: auto;
+    min-height: 108px;
+  }
+  
+  /* Service pill wrapper with viewport-relative units */
+  .service-pill-wrappar {
+    position: relative;
+    height: 45vh; /* Use viewport height for proportional scaling */
+    width: 100%;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+  }
+  
+  /* Animation keyframes for drop-in effect */
+  @keyframes drop-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-200px) rotate(0deg);
+    }
+    70% {
+      opacity: 1;
+      transform: translateY(30px) rotate(var(--final-rotation));
+    }
+    85% {
+      transform: translateY(-15px) rotate(var(--final-rotation));
+    }
+    92% {
+      transform: translateY(5px) rotate(var(--final-rotation));
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotate(var(--final-rotation));
+    }
+  }
+  
+  /* Service Pills Styling with viewport-relative units */
+  .service-pill {
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 100px; /* Increased roundness for better look */
+    padding: 0 2.5vw; /* Increased padding from 2vw to 2.5vw */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    z-index: 2;
+    transform-origin: center center;
+    opacity: 0;
+    --final-rotation: 0deg;
+    width: auto;
+    min-width: 15vw; /* Increased from 12vw to 15vw */
+    max-width: 22vw; /* Increased from 18vw to 22vw */
+    height: 15vh; /* Increased from 13vh to 15vh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .service-pill-text {
+    font-size: clamp(18px, 1.5vw, 26px); /* Increased font size from 16px,1.3vw,24px to 18px,1.5vw,26px */
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  
+  /* Base pill positions using a combination of % and viewport units for consistent scaling */
+  /* Updated pill positions to match the image layout */
+ /* Updated pill positions to match the image layout */
+ .pill-web-design {
+  top: 65%;
+  left: 15%;
+  --final-rotation: -35deg;
+}
+
+.pill-motion-graphic {
+  top: 60%;
+  left: 32%;
+  --final-rotation: -7deg;
+}
+
+.pill-graphic-design {
+  top: 62%;
+  left: 55%;
+  --final-rotation: 2deg;
+}
+
+.pill-digital-manipulation {
+  top: 80%;
+  left: 32%;
+  --final-rotation: 0deg;
+}
+
+.pill-visual-effect {
+  top: 80%;
+  left: 57%;
+  --final-rotation: 4deg;
+}
+
+.pill-development {
+  top: 42%;
+  right: 2%;
+  --final-rotation: -6deg;
+}
+
+.pill-product {
+  top: 61%;
+  right: 2%;
+  --final-rotation: 4deg;
+}
+
+.pill-management {
+  top: 80%;
+  right: 2%;
+  --final-rotation: -5deg;
+}
+
+  
+  /* Extra Large screens (1400px and above) */
+  @media (min-width: 1600px) {
+    .service-pill-wrappar {
+      height: 50vh; /* Taller container for XL screens */
+    }
+    
+    .service-pill {
+      min-width: 12vw; /* Increased from 10vw to 12vw */
+      max-width: 18vw; /* Increased from 16vw to 18vw */
+      height: 7vh; /* Increased from 6vh to 7vh */
+    }
+    
+    /* Adjust spacing for ultra wide screens */
+    .pill-web-design {
+      left: 8%;
+    }
+    
+    .pill-motion-graphic {
+      left: 25%;
+    }
+    
+    .pill-graphic-design {
+      left: 50%;
+    }
+  }
+  
+  /* Large screens (1200px to 1399px) */
+  @media (min-width: 1200px) and (max-width: 1599px) {
+    .service-section {
+      padding: 100px;
+    }
+    
+    .service-card {
+      padding: 90px 90px 45px 90px;
+    }
+    
+    .service-pill-wrappar {
+      height: 45vh;
+    }
+    
+    .service-pill {
+      min-width: 13vw; /* Increased from 11vw to 13vw */
+      max-width: 19vw; /* Increased from 17vw to 19vw */
+      height: 7.5vh; /* Increased from 6.5vh to 7.5vh */
+    }
+  }
+  
+  /* Medium-large screens (992px to 1199px) */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .service-section {
+      padding: 90px;
+    }
+    
+    .service-card {
+      padding: 70px 70px 35px 70px;
+    }
+    
+    .service-description p {
+      font-size: 22px;
+      min-height: 99px;
+    }
+    
+    .service-pill-wrappar {
+      height: 40vh;
+    }
+    
+    .service-pill {
+      min-width: 14vw; /* Increased from 12vw to 14vw */
+      max-width: 20vw; /* Increased from 18vw to 20vw */
+      height: 7.5vh; /* Increased from 6.5vh to 7.5vh */
+      padding: 0 2vw; /* Increased from 1.8vw */
+    }
+    
+    .service-pill-text {
+      font-size: clamp(16px, 1.4vw, 22px); /* Increased from 14px,1.2vw,20px to 16px,1.4vw,22px */
+    }
+  }
+  
+  /* Medium screens (768px to 991px) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .service-section {
+      padding: 80px 60px;
+    }
+    
+    .section-title {
+      font-size: 2.8rem;
+    }
+    
+    .service-card {
+      padding: 60px 60px 30px 60px;
+    }
+    
+    .service-description p {
+      font-size: 20px;
+      min-height: 90px;
+    }
+    
+    .service-pill-wrappar {
+      height: 45vh;
+    }
+    
+    .service-pill {
+      min-width: 17vw; /* Increased from 15vw to 17vw */
+      max-width: 24vw; /* Increased from 22vw to 24vw */
+      height: 7.5vh; /* Increased from 6.5vh to 7.5vh */
+      padding: 0 2.2vw; /* Increased from 2vw to 2.2vw */
+    }
+    
+    .service-pill-text {
+      font-size: clamp(14px, 1.3vw, 20px); /* Increased from 12px,1.1vw,18px to 14px,1.3vw,20px */
+    }
+  }
+
+  /* Small screens and mobile (max-width: 767px) */
+  @media (max-width: 767px) {
+    .service-section {
+      padding: 60px 30px;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+    }
+    
+    .service-card {
+      padding: 50px 30px 100px 30px;
+      min-height: auto;
+    }
+    
+    .service-description {
+      margin-bottom: 30px;
+    }
+    
+    .service-description p {
+      font-size: 18px;
+      min-height: auto;
+      -webkit-line-clamp: unset;
+      display: block;
+    }
+    
+    .service-pill-wrappar {
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      position: static;
+    }
+    
+    .service-pill {
+      position: relative;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      min-width: 0;
+      max-width: none;
+      width: 100%;
+      height: 70px; /* Increased from 60px to 70px */
+      transform: none !important;
+      margin: 0;
+      padding: 10px 18px; /* Increased from 8px 15px to 10px 18px */
+      opacity: 1;
+      --final-rotation: 0deg;
+    }
+    
+    .service-pill-text {
+      font-size: 17px; /* Increased from 15px to 17px */
+      white-space: normal;
+    }
+  }
+  
+  /* Extra small screens (max-width: 575px) */
+  @media (max-width: 575px) {
+    .service-section {
+      padding: 40px 20px;
+    }
+    
+    .service-card {
+      padding: 40px 20px 80px 20px;
+    }
+    
+    .service-pill-wrappar {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    
+    .service-description p {
+      font-size: 16px;
+    }
+    
+    .service-pill {
+      height: 65px; /* Increased from 55px to 65px */
+      padding: 10px 15px; /* Increased from 8px 12px to 10px 15px */
+    }
+    
+    .service-pill-text {
+      font-size: 16px; /* Increased from 14px to 16px */
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  } 

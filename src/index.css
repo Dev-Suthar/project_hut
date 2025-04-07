@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Adding smooth scrolling to the entire document */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  /* Update overflow settings to prevent double scrollbars */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* Prevent content shifting during animations */
+  background-color: #000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Update overflow settings to prevent double scrollbars */
+  overflow-x: hidden;
+  overflow-y: visible;
+  /* Improve scrolling performance */
+  height: 100%;
+  position: relative;
+  background-color: #000;
+  /* Ensure background covers during section transitions */
+  min-height: 100vh;
+}
+
+/* Optimize animations performance */
+* {
+  will-change: auto; /* Changed from transform, opacity to auto for better performance */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Use hardware acceleration for smoother performance */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Smooth scrolling for all elements with transitions */
+.app {
+  transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+  background-color: #000;
+  min-height: 100vh;
+}
+
+/* Target elements with animations to ensure they don't block the main thread */
+[class*="section"],
+[class*="banner"] {
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+  /* Ensure sections render correctly during transitions */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Prevent white flashes during scrolling */
+.gsap-marker-scroller-start,
+.gsap-marker-scroller-end,
+.gsap-marker-start,
+.gsap-marker-end {
+  background-color: #000 !important;
+}
+
+/* Fix for ScrollTrigger pin spacers */
+.pin-spacer {
+  background-color: inherit !important;
+  display: block !important;
+  overflow: visible !important;
+  /* Make sure pin-spacer never hides content */
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: auto !important;
+}
+
+/* Fix for services detail section pin spacer specifically */
+.services-detail-section + .pin-spacer,
+.pin-spacer + .services-detail-section,
+.services-detail-section ~ .pin-spacer,
+.pin-spacer ~ .services-detail-section {
+  background-color: #111111 !important;
+}
+
+/* Apply proper background to the RoadmapSection pin spacer */
+.project-roadmap-section + .pin-spacer,
+.pin-spacer + .project-roadmap-section,
+.project-roadmap-section ~ .pin-spacer,
+.pin-spacer ~ .project-roadmap-section {
+  background-color: #000000 !important;
+}
+
+/* Fix for position absolute elements during pinning */
+.pin-spacer * {
+  visibility: visible !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Fix for transitions between pinned sections */
+.pin-spacer-active {
+  z-index: 999 !important;
+}
+
+/* Improve section transitions */
+section {
+  background-color: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+/* Optimize for fast scrolling */
+@media (prefers-reduced-motion) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition-duration: 0.15s !important;
+    animation-duration: 0.15s !important;
+  }
+}
+
+/* Fix for stuck transitions */
+.ScrollTrigger-end,
+.ScrollTrigger-start {
+  background: transparent !important;
+}
+
+.animate-bg-cycle {
+  animation: bgCycle 21s infinite ease-in-out;
+}
+
+@keyframes bgCycle {
+  0%,
+  100% {
+    background-color: #add8e6;
+  }
+  14% {
+    background-color: #ffb6c1;
+  }
+  28% {
+    background-color: #d8bfd8;
+  }
+  42% {
+    background-color: #ffdab9;
+  }
+  56% {
+    background-color: #98fb98;
+  }
+  70% {
+    background-color: #ffc8d2;
+  }
+  84% {
+    background-color: #e6e6e6;
+  }
+}
+
+@font-face {
+  font-family: "Aspekta-700";
+  src: local("Aspekta-700"),
+    url(assets/fonts/Aspekta-700.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Aspekta-1000";
+  src: local("Aspekta-1000"),
+    url(assets/fonts/Aspekta-1000.ttf) format("truetype");
+}
+@font-face {
+  font-family: "NyghtSerif-Regular";
+  src: local("NyghtSerif-Regular"),
+    url(assets/fonts/NyghtSerif-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "AlbertSans-Regular";
+  src: local("AlbertSans-Regular"),
+    url(assets/fonts/AlbertSans-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "New-Order-Medium";
+  src: local("New-Order-Medium"),
+    url(assets/fonts/New-Order-Medium.otf) format("opentype");
+}
+@font-face {
+  font-family: "AlbertSans-SemiBold";
+  src: local("AlbertSans-SemiBold"),
+    url(assets/fonts/AlbertSans-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "New-Order-Regular";
+  src: local("New-Order-Regular"),
+    url(assets/fonts/New-Order-Regular.otf) format("truetype");
+}
+@font-face {
+  font-family: "New-Order-SemiBold";
+  src: local("New-Order-SemiBold"),
+    url(assets/fonts/New-Order-SemiBold.otf) format("truetype");
+}
+@font-face {
+  font-family: "New-Order-Bold";
+  src: local("New-Order-Bold"),
+    url(assets/fonts/New-Order-Bold.otf) format("opentype");
+}

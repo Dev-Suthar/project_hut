@@ -1,0 +1,495 @@
+/* Services in detail Section */
+.services-detail-section {
+  padding: 100px 0 50px;
+  background-color: black;
+  position: relative;
+  width: 100%;
+  font-family: 'New Order', 'Albert Sans', sans-serif;
+  overflow: visible;
+  min-height: 100vh;
+  margin-bottom: 100px;
+}
+
+.services-detail-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Container for positioning cards */
+.services-detail-section .container {
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  min-height: 100vh;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.services-detail-title {
+  display: block;
+  font-size: 72px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 80px;
+  width: 90%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+/* Sticky container similar to portfolio example */
+.services-detail-cards-stack {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+  padding: 20px 0 10vh 0; /* Drastically reduced padding */
+}
+
+/* Sticky cards with portfolio-like styling */
+.service-detail-card {
+  position: sticky;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 0px;
+  padding: 60px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  min-height: 550px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15vh; /* Further reduced to minimize space */
+}
+
+/* Position each card with only 10% offset from previous to create tighter cascade effect */
+#card-1 {
+  top: 50px;
+}
+
+#card-2 {
+  top: 105px; /* 10% of card height (~550px) = ~55px offset */
+}
+
+#card-3 {
+  top: 160px; /* Cumulative offset */
+}
+
+#card-4 {
+  top: 215px; /* Cumulative offset */
+}
+
+#card-5 {
+  top: 270px; /* Cumulative offset */
+  position: relative; /* Make the last card relative positioning when at the bottom of its container */
+}
+
+/* Ensure proper stacking order - cards with higher numbers should appear on top */
+#card-1 { z-index: 10; }
+#card-2 { z-index: 20; }
+#card-3 { z-index: 30; }
+#card-4 { z-index: 40; }
+#card-5 { z-index: 50; }
+
+/* Make sure cards are visible and don't disappear after scrolling */
+.service-detail-card.visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  visibility: visible !important;
+}
+
+/* Card colors - update for all cards */
+#card-1 {
+  background-color: #F4F4F4;
+  border: none;
+}
+
+#card-2 {
+  background-color: #46D5B3;
+  border: none;
+}
+
+#card-3 {
+  background-color: #E84D48;
+  border: none;
+}
+
+/* New card colors */
+#card-4 {
+  background-color: #4977FE;
+  border: none;
+}
+
+#card-5 {
+  background-color: #FEE15F;
+  border: none;
+}
+
+.service-detail-content {
+  padding-right: 15px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Service tags container styled like portfolio tags-container */
+.service-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 30px;
+  opacity: 1;
+}
+
+/* Style tags like portfolio pills */
+.service-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 5px;
+  font-size: 14px;
+  border-radius: 20px;
+  background: #111111;
+  color: white;
+  transition: background 0.3s;
+  float: none;
+  clear: none;
+  max-width: 220px;
+  height: auto;
+  font-weight: 400;
+  letter-spacing: 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-family: 'Albert Sans', sans-serif;
+}
+
+.service-tag:hover {
+  background: #333;
+}
+
+/* Card 1 specific tag colors */
+#card-1 .service-tag {
+  background-color: #F4F4F4;
+  color: #111111;
+  border: 1px solid #111111;
+}
+
+/* Card 2 specific tag colors */
+#card-2 .service-tag {
+  background-color: #46D5B3;
+  color: #111111;
+  border: 1px solid #111111;
+}
+
+/* Card 3 specific tag colors */
+#card-3 .service-tag {
+  background-color: #E84D48;
+  color: #111111;
+  border: 1px solid #111111;
+}
+
+/* Card 4 specific tag colors */
+#card-4 .service-tag {
+  background-color: #4977FE;
+  color: #111111;
+  border: 1px solid #111111;
+}
+
+/* Card 5 specific tag colors */
+#card-5 .service-tag {
+  background-color: #FEE15F;
+  color: #111111;
+  border: 1px solid #111111;
+}
+
+/* Match the teal tag styling with the updated style */
+.teal-tag {
+  background-color: #46D5B3;
+  color: #111111;
+  border: 1px solid #111111;
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 5px;
+  font-size: 14px;
+  border-radius: 20px;
+  transition: background 0.3s;
+  max-width: 220px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* Apply fade-in animation to headings like portfolio */
+.service-detail-heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 32px;
+  overflow: visible;
+  padding-right: 20px;
+  max-width: 95%;
+  line-height: 1.2;
+  color: #111111;
+  letter-spacing: -0.3px;
+  margin-bottom: 20px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Text alignment for all cards */
+.service-detail-description {
+  text-align: left;
+  padding-left: 0;
+  margin-left: 0;
+  overflow-wrap: break-word;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #111111;
+  margin-bottom: 0;
+  font-weight: 500;
+  max-width: 600px;
+  font-family: 'New Order', sans-serif;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.service-detail-name {
+  font-size: 64px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  color: #111111;
+  letter-spacing: -0.5px;
+  position: relative;
+  text-transform: none;
+  word-wrap: break-word;
+  text-align: left;
+  width: 100%;
+  padding-left: 0;
+  margin-left: 0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Specific styling for the second card title */
+#card-2 .service-detail-name {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.service-detail-body {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.service-detail-image {
+  flex: 0 0 45%;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.service-detail-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+.service-detail-image img:hover {
+  transform: scale(1.05);
+}
+
+.service-detail-text {
+  padding-right: 25px;
+  flex: 0 0 45%;
+  max-width: 50%;
+  overflow-wrap: break-word;
+}
+
+/* Make all elements within visible cards appear */
+.service-detail-card.visible .service-detail-name,
+.service-detail-card.visible .service-detail-heading,
+.service-detail-card.visible .service-detail-description,
+.service-detail-card.visible .service-detail-image,
+.service-detail-card.visible .service-tags {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Make service tags fade in */
+.service-tags {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Responsive styles */
+@media (max-width: 1199px) {
+  .services-detail-title,
+  .service-detail-card {
+    width: 90%;
+  }
+  
+  .service-detail-heading {
+    font-size: 30px;
+    white-space: normal;
+    padding-right: 20px;
+  }
+  
+  .service-tag {
+    max-width: 90%;
+  }
+  
+  .service-detail-name {
+    font-size: 56px;
+    text-align: left;
+  }
+  
+  .service-detail-image {
+    flex: 0 0 45%;
+  }
+}
+
+@media (max-width: 991px) {
+  .service-detail-card {
+    padding: 40px;
+    min-height: 650px;
+    margin-bottom: 10vh; /* Minimized space for tablets */
+  }
+  
+  /* Adjust top positions for tablets - each card shows 10% of previous card */
+  #card-1 { top: 30px; }
+  #card-2 { top: 95px; } /* 65px offset (10% of 650px height) */
+  #card-3 { top: 160px; } /* Cumulative offset */
+  #card-4 { top: 225px; } /* Cumulative offset */
+  #card-5 { top: 290px; } /* Cumulative offset */
+  
+  .service-detail-name {
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  .service-detail-body {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .service-detail-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .service-detail-text {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .services-detail-title {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 767px) {
+  .services-detail-title {
+    font-size: 42px;
+    margin-bottom: 60px;
+  }
+  
+  .service-detail-card {
+    padding: 30px;
+    width: 90%;
+    min-height: 700px;
+    margin-bottom: 5vh; /* Minimized space for mobile */
+  }
+  
+  /* Adjust top positions for mobile - each card shows 10% of previous card */
+  #card-1 { top: 20px; }
+  #card-2 { top: 90px; } /* 70px offset (10% of 700px height) */
+  #card-3 { top: 160px; } /* Cumulative offset */
+  #card-4 { top: 230px; } /* Cumulative offset */
+  #card-5 { top: 300px; } /* Cumulative offset */
+  
+  .service-detail-name {
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  
+  .service-detail-heading {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  #card-2 .service-detail-heading {
+    font-size: 26px;
+    white-space: normal;
+  }
+  
+  .service-detail-description {
+    font-size: 16px;
+  }
+  
+  .service-tag {
+    font-size: 14px;
+    padding: 5px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-detail-title {
+    font-size: 36px;
+  }
+  
+  .service-detail-name {
+    font-size: 32px;
+    text-align: left;
+  }
+  
+  .service-detail-heading {
+    font-size: 20px;
+  }
+  
+  .service-detail-description {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Only apply sticky positioning on larger screens for last card */
+  #card-5 {
+    position: sticky;
+  }
+}

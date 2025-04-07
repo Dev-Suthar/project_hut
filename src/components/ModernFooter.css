@@ -1,0 +1,868 @@
+/* ==========================================================================
+   Modern Footer - The Product Highway
+   A modern, responsive footer with rotating text and elegant animations
+   ========================================================================== */
+
+/* --------------------------------
+   Browser Resets - Added for zero spacing 
+-------------------------------- */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Extreme reset for footer and its children to ensure no browser defaults affect layout */
+.modern-footer,
+.modern-footer * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.modern-footer-container,
+.modern-footer-content,
+.modern-footer-cta,
+.modern-footer-cta-title {
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+
+/* Apply default margin for non-left sides only */
+.modern-footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 30px !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 60px; /* Added margin to increase space from circle on desktop */
+}
+
+/* Ensure this rule has higher specificity */
+body .modern-footer .modern-footer-container {
+  padding-left: 30px !important;
+}
+
+/* --------------------------------
+   Base Styles & Typography
+-------------------------------- */
+:root {
+  --footer-text-color: #ffffff;
+  --footer-bg-color: #000000;
+  --footer-border-color: #ffffff;
+  --footer-hover-opacity: 0.85;
+  --footer-font-family: "New Order", sans-serif;
+  --footer-transition: all 0.3s ease;
+}
+
+/* Force white text color with highest specificity */
+.modern-footer *,
+.modern-footer *::before,
+.modern-footer *::after,
+.modern-footer a:link,
+.modern-footer a:visited,
+.modern-footer a:hover,
+.modern-footer a:active,
+.modern-footer button,
+.modern-footer button:hover,
+.modern-footer h1,
+.modern-footer h2,
+.modern-footer h3,
+.modern-footer h4,
+.modern-footer h5,
+.modern-footer h6,
+.modern-footer p,
+.modern-footer span,
+.modern-footer div {
+  color: var(--footer-text-color) !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: var(--footer-text-color) !important;
+}
+
+/* --------------------------------
+   Footer Container
+-------------------------------- */
+.modern-footer {
+  background-color: var(--footer-bg-color);
+  padding: 70px 0 40px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+  height: auto;
+  min-height: 550px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modern-footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  padding-top: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* --------------------------------
+   CTA Section
+-------------------------------- */
+.modern-footer-cta {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  text-align: left !important;
+}
+
+.modern-footer-cta-title {
+  font-family: var(--footer-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 18px 0 !important;
+  padding: 0 !important;
+  letter-spacing: 0.5px;
+  text-align: left !important;
+}
+
+.modern-footer-cta-button {
+  background-color: transparent;
+  border: 1px solid var(--footer-text-color);
+  border-radius: 30px;
+  padding: 8px 20px;
+  margin-left: 0 !important;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--footer-transition);
+  letter-spacing: 0.5px;
+  font-family: var(--footer-font-family);
+  text-align: left !important;
+}
+
+.modern-footer-cta-button:hover {
+  background-color: var(--footer-text-color);
+  color: var(--footer-bg-color) !important;
+  -webkit-text-fill-color: var(--footer-bg-color) !important;
+}
+
+/* --------------------------------
+   Social Links Section
+-------------------------------- */
+.modern-footer-social-container {
+  display: flex;
+  gap: 55px;
+  margin-bottom: 20px;
+}
+
+.modern-footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modern-footer-social-link {
+  text-decoration: none;
+  font-size: 16px;
+  font-family: var(--footer-font-family);
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.modern-footer-social-link:hover {
+  opacity: var(--footer-hover-opacity);
+}
+
+/* --------------------------------
+   Back to Top Button
+-------------------------------- */
+.modern-back-to-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modern-back-to-top-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--footer-text-color);
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.modern-back-to-top-text {
+  font-family: var(--footer-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------
+   Company Name Section
+-------------------------------- */
+.modern-footer-company-name {
+  margin-top: 40px;
+  text-align: left;
+  font-family: var(--footer-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--footer-text-color) !important;
+  -webkit-text-fill-color: var(--footer-text-color) !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+@media screen and (max-width: 767px) {
+  .modern-footer-company-name {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .modern-footer-company-name {
+    margin-top: 25px;
+    font-size: 13px;
+  }
+}
+
+/* --------------------------------
+   Background Elements
+-------------------------------- */
+.modern-footer-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 1;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modern-footer-background-text {
+  font-family: var(--footer-font-family);
+  font-size: 200px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  position: absolute;
+  mix-blend-mode: normal;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8) !important;
+  width: max-content;
+  -webkit-text-stroke: 1px white;
+  filter: brightness(1.3) contrast(1.1);
+  opacity: 0.95;
+}
+
+/* --------------------------------
+   Circular Button
+-------------------------------- */
+.modern-footer-circle-button {
+  position: absolute;
+  top: 65%; /* Changed from 50% to 65% to move it down, positioning it between the two background text lines */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 223px;
+  height: 223px;
+  z-index: 4;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.modern-circle-button-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1.5px solid var(--footer-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.modern-circle-button-inner:hover {
+  transform: scale(1.05);
+}
+
+.modern-circle-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  text-align: center;
+  animation: modernRotate 20s linear infinite;
+  -webkit-animation: modernRotate 20s linear infinite;
+}
+
+.modern-circle-text span {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 50%;
+  transform-origin: bottom center;
+  -webkit-transform-origin: bottom center;
+  font-family: var(--footer-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modern-circle-arrow {
+  position: relative;
+  z-index: 2;
+  font-size: 20px;
+}
+
+/* --------------------------------
+   Animations
+-------------------------------- */
+@keyframes modernRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes modernRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes trueLeftToRight {
+  0% {
+    transform: translateX(-33.33%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes trueLeftToRight {
+  0% {
+    -webkit-transform: translateX(-33.33%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+/* Apply animations to background text */
+.modern-footer-background-text:first-child {
+  top: 35%;
+  animation: trueLeftToRight 25s linear infinite;
+  -webkit-animation: trueLeftToRight 25s linear infinite;
+  font-weight: 700;
+}
+
+.modern-footer-background-text:last-child {
+  bottom: 0%;
+  animation: trueLeftToRight 25s linear infinite;
+  -webkit-animation: trueLeftToRight 25s linear infinite;
+  animation-delay: -12.5s;
+  -webkit-animation-delay: -12.5s;
+  font-weight: 700;
+}
+
+/* --------------------------------
+   Responsive Styles
+-------------------------------- */
+/* Extra Large screens (1400px and above) */
+@media screen and (min-width: 1400px) {
+  .modern-footer {
+    min-height: 650px;
+  }
+
+  .modern-footer-background-text {
+    font-size: 220px;
+  }
+
+  .modern-footer-circle-button {
+    width: 250px;
+    height: 250px;
+    top: 68%; /* Adjusted for larger screens */
+  }
+
+  .modern-circle-text span {
+    font-size: 16px;
+  }
+}
+
+/* Large screens (1200px to 1399px) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .modern-footer {
+    min-height: 600px;
+  }
+
+  .modern-footer-background-text {
+    font-size: 200px;
+  }
+
+  .modern-footer-circle-button {
+    top: 67%; /* Adjusted for large screens */
+  }
+}
+
+/* Medium-large screens (992px to 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .modern-footer {
+    padding: 60px 0 30px;
+    min-height: 550px;
+  }
+
+  .modern-footer-circle-button {
+    width: 180px;
+    height: 180px;
+    top: 66%; /* Adjusted for medium-large screens */
+  }
+
+  .modern-circle-text span {
+    font-size: 12px;
+  }
+
+  .modern-footer-background-text {
+    font-size: 150px;
+  }
+
+  .modern-footer-container {
+    padding: 0 0 0 30px !important; /* Updated to match */
+    margin-bottom: 100px;
+  }
+}
+
+/* Medium screens (768px to 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .modern-footer {
+    padding: 50px 0 30px;
+    min-height: 500px;
+  }
+
+  .modern-footer-circle-button {
+    width: 150px;
+    height: 150px;
+    top: 65%; /* Adjusted for medium screens */
+  }
+
+  .modern-circle-text span {
+    font-size: 10px;
+  }
+
+  .modern-footer-background-text {
+    font-size: 120px;
+  }
+
+  .modern-footer-background-text:first-child {
+    top: 40%; /* Position even lower on medium screens */
+  }
+
+  .modern-footer-container {
+    padding: 0 0 0 30px !important; /* Updated to match */
+  }
+
+  .modern-footer-social-container {
+    gap: 30px;
+  }
+
+  .modern-footer-cta-title {
+    font-size: 14px;
+  }
+
+  .modern-footer-cta-button {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+
+  .modern-footer-social-link {
+    font-size: 14px;
+  }
+}
+
+/* Small screens (576px to 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .modern-footer {
+    padding: 40px 0 30px;
+    min-height: 450px;
+  }
+
+  .modern-footer-circle-button {
+    width: 120px;
+    height: 120px;
+    top: 40%;
+  }
+
+  .modern-circle-text span {
+    font-size: 8px;
+  }
+
+  .modern-circle-arrow {
+    font-size: 16px;
+  }
+
+  .modern-footer-background-text {
+    font-size: 90px;
+  }
+
+  .modern-footer-background-text:first-child {
+    top: 45%; /* Position lower on small screens */
+  }
+
+  .modern-footer-background-text:last-child {
+    bottom: 2%; /* Move bottom text further down */
+  }
+
+  .modern-footer-container {
+    padding: 0 0 0 30px !important; /* Updated to match */
+  }
+
+  .modern-footer-content {
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .modern-footer-social-container {
+    flex-direction: row;
+    gap: 40px;
+    justify-content: flex-start;
+  }
+
+  .modern-footer-cta {
+    margin-right: 0;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .modern-footer-cta-title {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .modern-footer-social-link {
+    font-size: 13px;
+  }
+
+  .modern-back-to-top {
+    margin-top: 20px;
+    align-self: flex-start;
+  }
+}
+
+/* Extra small screens (up to 575px) */
+@media screen and (max-width: 575px) {
+  .modern-footer {
+    padding: 30px 0 20px;
+    min-height: 550px; /* Increased from 450px */
+  }
+
+  .modern-footer-circle-button {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    position: relative;
+    top: 50px; /* Added more top spacing to position circle lower */
+  }
+
+  .modern-circle-text span {
+    font-size: 7px;
+  }
+
+  .modern-circle-arrow {
+    font-size: 14px;
+  }
+
+  .modern-footer-background-text {
+    font-size: 60px;
+  }
+
+  .modern-footer-background-text:first-child {
+    top: 50%; /* Position even lower on small screens */
+  }
+
+  .modern-footer-background-text:last-child {
+    bottom: 0%; /* Move to bottom edge */
+  }
+
+  .modern-footer-container {
+    margin-top: 170px; /* Increased from previous value */
+    padding: 0 0 0 30px !important; /* Updated to match */
+  }
+
+  .modern-footer-content {
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start !important;
+    text-align: left !important;
+    margin-bottom: 30px;
+  }
+
+  .modern-footer-social-container {
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+  }
+
+  .modern-footer-social {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .modern-footer-cta {
+    margin-right: 0;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .modern-footer-cta-title {
+    font-size: 13px;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .modern-footer-cta-button {
+    font-size: 11px;
+    padding: 5px 14px;
+  }
+
+  .modern-footer-social-link {
+    font-size: 12px;
+  }
+
+  .modern-back-to-top {
+    margin-top: 15px;
+    align-self: flex-start;
+  }
+
+  .modern-back-to-top-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+    margin-right: 6px;
+  }
+
+  .modern-back-to-top-text {
+    font-size: 12px;
+  }
+}
+
+/* Very small screens (up to 400px) */
+@media screen and (max-width: 400px) {
+  .modern-footer {
+    min-height: 480px;
+  }
+
+  .modern-footer-circle-button {
+    width: 90px;
+    height: 90px;
+    top: 60px; /* Added even more top spacing for very small screens */
+  }
+
+  .modern-circle-text span {
+    font-size: 6px;
+  }
+
+  .modern-circle-arrow {
+    font-size: 12px;
+  }
+
+  .modern-footer-background-text {
+    font-size: 45px;
+  }
+
+  .modern-footer-background-text:first-child {
+    top: 55%; /* Position at the bottom half of screen */
+  }
+
+  .modern-footer-container {
+    margin-top: 140px;
+    padding-top: 130px;
+  }
+
+  .modern-footer-cta-title {
+    font-size: 12px;
+  }
+
+  .modern-footer-cta-button {
+    font-size: 10px;
+    padding: 4px 12px;
+  }
+
+  .modern-footer-social-link {
+    font-size: 11px;
+  }
+
+  .modern-back-to-top {
+    margin-top: 15px;
+    align-self: flex-start;
+  }
+
+  .modern-back-to-top-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  .modern-back-to-top-text {
+    font-size: 11px;
+  }
+}
+
+/* --------------------------------
+   Mobile Layout Adjustments
+-------------------------------- */
+@media screen and (max-width: 767px) {
+  .modern-footer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    min-height: 600px;
+    padding-left: 0 !important; /* Added to ensure no padding on the left */
+  }
+
+  .modern-footer-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .modern-footer-container {
+    order: 2;
+    margin-top: 250px; /* Increased from 200px to 250px to accommodate the lower circle position */
+    padding: 0 0 0 30px !important; /* Updated to match */
+    margin-left: 0 !important; /* Ensure no margin on the left */
+  }
+
+  .modern-footer-circle-button {
+    position: relative;
+    order: 1;
+    top: 30px; /* Added top margin to position it lower in mobile view */
+    margin: 0 auto 70px; /* Increased bottom margin from 50px to 70px */
+    transform: none;
+    left: auto;
+  }
+
+  .modern-footer-content {
+    padding-top: 0;
+    padding-left: 0;
+    margin-left: 0;
+    align-items: flex-start !important;
+  }
+
+  .modern-footer-cta {
+    width: 100% !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .modern-footer-cta-title {
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .modern-footer-cta-button {
+    text-align: center !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* Adjust for extra small screens */
+@media screen and (max-width: 575px) {
+  .modern-footer-container {
+    margin-top: 170px;
+    padding: 0 0 0 30px !important; /* Updated to match */
+    margin-left: 0 !important; /* Ensure no margin on the left */
+  }
+
+  .modern-footer {
+    min-height: 550px;
+  }
+
+  .modern-footer-cta,
+  .modern-footer-cta-title,
+  .modern-footer-cta-button {
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* Adjust for very small screens */
+@media screen and (max-width: 400px) {
+  .modern-footer-container {
+    margin-top: 140px;
+  }
+}
+
+/* --------------------------------
+   Accessibility Enhancements
+-------------------------------- */
+/* Ensure social links are white */
+a.modern-footer-social-link {
+  color: var(--footer-text-color) !important;
+  -webkit-text-fill-color: var(--footer-text-color) !important;
+  text-decoration: none !important;
+}
+
+/* Ensure button text is white */
+button.modern-footer-cta-button {
+  color: var(--footer-text-color) !important;
+  -webkit-text-fill-color: var(--footer-text-color) !important;
+  border-color: var(--footer-text-color) !important;
+}
+
+/* Fix button hover */
+button.modern-footer-cta-button:hover {
+  background-color: var(--footer-text-color) !important;
+  color: var(--footer-bg-color) !important;
+  -webkit-text-fill-color: var(--footer-bg-color) !important;
+}
+
+/* Ensure back to top button is white */
+.modern-back-to-top,
+.modern-back-to-top-icon,
+.modern-back-to-top-text {
+  color: var(--footer-text-color) !important;
+  -webkit-text-fill-color: var(--footer-text-color) !important;
+}
